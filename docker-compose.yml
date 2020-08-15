@@ -18,3 +18,12 @@ services:
     - ./db/sql:/docker-entrypoint-initdb.d
     ports:
     - 3306:3306
+
+  chs:
+    image: yandex/clickhouse-server
+    container_name: "clickhouse"
+    ports:
+      - 8129:8129
+      - 9000:9000
+    depends_on:
+      - db
